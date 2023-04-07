@@ -1,5 +1,5 @@
 from django.db import models
-from shop.models import Order
+
 
 class Cart(models.Model):
     item_name = models.CharField(max_length=30)
