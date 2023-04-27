@@ -52,20 +52,12 @@
               <a class="dropdown-item" href="/vans/">Vans</a>
             </div>
           </li>
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown03">
-              <a class="dropdown-item" href="{% url 'shop:product_list' %}">All</a>
-              <a class="dropdown-item" href="/adidas/">Adidas</a>
-              <a class="dropdown-item" href="/converse/">Converse</a>
-              <a class="dropdown-item" href="/jordan/">Jordan's</a>
-              <a class="dropdown-item" href="/nike/">Nike</a>
-              <a class="dropdown-item" href="/vans/">Vans</a>
-            </div>
-          </li>
-            <form class="form-inline my-2 my-md-0">
-          <input class="form-control" type="text" placeholder="Search">
-        </form>
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <input class="form-control me-2" type="text" placeholder="Search Products" aria-label="Search" name="searched">
+            </form>
         </ul>
            <ul class="nav navbar-nav">
             {% if user.is_authenticated %}

@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+
 from .models import Category, Product
 from cart.forms import CartAddProductForm
 from django.views import generic
@@ -51,3 +52,11 @@ class ProductListView(LoginRequiredMixin, generic.ListView):
 class ProductCategoryView(LoginRequiredMixin, generic.ListView):
     model = Category
 
+
+def search(request):
+    if request.method == "GET":
+        searched = request.GET.get('searched')
+        post = Product.objects.all().filter(name=search)
+        return render(request, 'search.html', {'searched': searched})
+    else:
+        return render(request, 'search.html', {})

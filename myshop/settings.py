@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import sys
 from pathlib import Path
 import os
 from braintree import Configuration, Environment
@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-0ozmq)^ncdi3cs5@eq=af@n&p%r=#9pyuqc7h8yuk+=l*ivq)i
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'register.apps.RegisterConfig',
     'crispy_forms',
+    'django_admin_listfilter_dropdown',
+    'braintree',
+
 ]
 
 MIDDLEWARE = [
@@ -110,12 +113,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'nspw3900'
+EMAIL_HOST_PASSWORD = 'jytvoxlzidtqseob'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+SERVER_EMAIL = 'root@gmail.com'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'en-us'
-
 
 
 USE_I18N = True
@@ -137,11 +146,14 @@ LOGIN_REDIRECT_URL = '/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
+if len(sys.argv) >= 2 and sys.argv[1] == 'runserver':
+    BRAINTREE_PRODUCTION = False
+else:
+    BRAINTREE_PRODUCTION = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# Braintree settings - replace with your credentials after signing up for braintree account
-BRAINTREE_MERCHANT_ID = 'Merchant ID'  # Merchant ID
-BRAINTREE_PUBLIC_KEY = 'Public Key'   # Public Key
-BRAINTREE_PRIVATE_KEY = 'Private key'  # Private key
+BRAINTREE_MERCHANT_ID = 'qd2798wr9pbxpd45'  # Merchant ID
+BRAINTREE_PUBLIC_KEY = 'ry29r582b3j5mfpk'   # Public Key
+BRAINTREE_PRIVATE_KEY = '3367c6a62d351ce2ac22b80ef664a4b3'  # Private key
 
 
 Configuration.configure(

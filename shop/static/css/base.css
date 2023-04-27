@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:300);
 
 body { 
     margin:0;
@@ -329,3 +330,148 @@ form div.field {
     color:#666;
     border-radius:4px;
 }
+
+.form-gap {
+    padding-top: 70px;
+}
+
+.footer {
+    padding: 20px;
+    max-height: 75px;
+    margin-top: 20px;
+}
+
+.dropdown {
+			position: relative;
+			display: flex;
+            justify-content: right;
+		}
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			z-index: 1;
+		}
+		.dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row {
+  display: inline-block;
+  justify-content: center;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+img {
+    object-fit: contain;
+}
+
+.brand-row {
+    float: left;
+    margin: 2px;
+}
+
+body {
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+/* Sticky footer position and size
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 60%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 300px;
+}
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 80px;
+}
+
+/* Taller footer on small screens */
+@media (max-width: 560em) {
+    body {
+      margin-bottom: 250px;
+    }
+    .footer {
+      height: 200px;
+    }
+}
+
+/* Sticky footer style and color
+-------------------------------------------------- */
+footer {
+  padding-top: 20px;
+  background-color: #292c2f;
+  color: #bbb;
+}
+
+footer a {
+  color: #999;
+  text-decoration:none;
+}
+
+footer a:hover, footer a:focus {
+  color: #aaa;
+  text-decoration:none;
+  border-bottom:1px dotted #999;
+}
+
+footer .form-control {
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    color: #d1d2d2;
+    padding: 0.1em 1em;
+}
+
+/* Credits: https://www.codeply.com/p/EJd6H4Ejyi */
+
+
+.button {
+  cursor: pointer;
+  font-weight: 500;
+  left: 3px;
+  line-height: inherit;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+}
+
+.button--small {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+}
+
+.button--green {
+  outline: none;
+  background-color: #64d18a;
+  border-color: #64d18a;
+  color: white;
+  transition: all 200ms ease;
+}
+
+.button--green:hover {
+  background-color: #8bdda8;
+  color: white;
+}
+
