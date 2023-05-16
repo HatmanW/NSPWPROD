@@ -21,6 +21,7 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
+
 class EntityAdmin(admin.ModelAdmin):
     ...
     list_filter = (
@@ -31,3 +32,4 @@ class EntityAdmin(admin.ModelAdmin):
         # for related fields
         ('a_foreignkey_field', RelatedDropdownFilter),
     )
+

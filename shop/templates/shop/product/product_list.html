@@ -1,0 +1,44 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}
+  {% if category %}{{ category.name }}{% else %}Products{% endif %}
+{% endblock %}
+
+{% block content %}
+  <div id="sidebar">
+    <h3>Categories</h3>
+    <ul>
+      <li {% if not category %}class="selected"{% endif %}>
+        <a href="{% url "shop:product_list" %}">All</a>
+      </li>
+      {% for c in categories %}
+        <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+          <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{#    <div class="header-bottom-set dropdown">#}
+{#        <button class="dropdown-toggle header-action-btn" href='#' data-toggle="dropdown"><strong>Sort By: </strong></button>#}
+{#            <div class="dropdown-menu" aria-labelledby="dropdown03">#}
+{#                <li class="filter"><a class="dropdown-item" href="?sort=best">Best Sellers</a></li>#}
+{#                <li class="filter"><a class="dropdown-item" href="?sort=new">New Arrivals</a></li>#}
+{#                <li class="filter"><a class="dropdown-item" href="?sort=l2h">Price (Low to High)</a></li>#}
+{#                <li class="filter"><a class="dropdown-item" href="?sort=h2l">Price (High to Low)</a></li>#}
+{#            </div>#}
+{#    </div>#}
+  <div id="main" class="product-list">
+    <h1>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
+    {% for product in products %}
+      <div class="item">
+        <a href="{{ product.get_absolute_url }}">
+          <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+        </a>
+        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
+        ${{ product.price }}
+      </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}

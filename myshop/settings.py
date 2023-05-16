@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'register.apps.RegisterConfig',
     'crispy_forms',
-    'django_admin_listfilter_dropdown',
     'braintree',
 
 ]
@@ -76,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
     },
