@@ -13,8 +13,8 @@ class ll_ATS(unittest.TestCase):
 
     def test_ll(self):
         #Pre-requisties #3
-        user = "Testuser1"
-        pwd = "testuser123!"
+        user = "superuser"
+        pwd = "password123!"
 
         driver = self.driver
         driver.maximize_window()
@@ -22,7 +22,7 @@ class ll_ATS(unittest.TestCase):
         opening the django admin page. 
         This also meets step 4, and should successfully log into the site 
         as the admin testuser account'''
-        driver.get("http://127.0.0.1:8000/admin")
+        driver.get("http://hatmanwgrey.pythonanywhere.com/accounts/login/")
         #step 4
         elem = driver.find_element(By.ID,"id_username")
         elem.send_keys(user)

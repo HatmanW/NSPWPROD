@@ -14,9 +14,9 @@ class ll_ATS(unittest.TestCase):
     def test_ll(self):
         driver = self.driver
         driver.maximize_window()
-        user = "testuser2"
-        pwd = "test123!"
-        driver.get("http://127.0.0.1:8000/accounts/login/")
+        user = ""
+        pwd = ""
+        driver.get("http://hatmanwgrey.pythonanywhere.com/")
 
         time.sleep(3)
         elem = driver.find_element(By.ID,"id_username")
